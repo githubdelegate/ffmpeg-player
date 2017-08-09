@@ -7,7 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4232E21A1F3AE73500CC9D3D /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4232E2191F3AE73500CC9D3D /* libSDL2-2.0.0.dylib */; };
 		42BDCF7D1F3338A30085E53C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42BDCF7C1F3338A30085E53C /* main.c */; };
+		42BDCF851F3338B90085E53C /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDCF841F3338B90085E53C /* libbz2.tbd */; };
+		42BDCF871F3338C10085E53C /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDCF861F3338C10085E53C /* VideoToolbox.framework */; };
+		42BDCF891F3338C80085E53C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDCF881F3338C80085E53C /* CoreMedia.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		42BDCF8B1F3338CD0085E53C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDCF8A1F3338CD0085E53C /* libz.tbd */; };
+		42BDCF8D1F3338D40085E53C /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDCF8C1F3338D40085E53C /* libiconv.tbd */; };
+		42BDD0101F333D910085E53C /* libavcodec.57.89.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDD0071F333D910085E53C /* libavcodec.57.89.100.dylib */; };
+		42BDD0111F333D910085E53C /* libavdevice.57.6.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDD0081F333D910085E53C /* libavdevice.57.6.100.dylib */; };
+		42BDD0121F333D910085E53C /* libavfilter.6.82.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDD0091F333D910085E53C /* libavfilter.6.82.100.dylib */; };
+		42BDD0131F333D910085E53C /* libavformat.57.71.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDD00A1F333D910085E53C /* libavformat.57.71.100.dylib */; };
+		42BDD0141F333D910085E53C /* libavresample.3.5.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDD00B1F333D910085E53C /* libavresample.3.5.0.dylib */; };
+		42BDD0151F333D910085E53C /* libavutil.55.58.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDD00C1F333D910085E53C /* libavutil.55.58.100.dylib */; };
+		42BDD0161F333D910085E53C /* libpostproc.54.5.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDD00D1F333D910085E53C /* libpostproc.54.5.100.dylib */; };
+		42BDD0171F333D910085E53C /* libswresample.2.7.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDD00E1F333D910085E53C /* libswresample.2.7.100.dylib */; };
+		42BDD0181F333D910085E53C /* libswscale.4.6.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDD00F1F333D910085E53C /* libswscale.4.6.100.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +38,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4232E2191F3AE73500CC9D3D /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2/2.0.5/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 		42BDCF791F3338A30085E53C /* player2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = player2; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BDCF7C1F3338A30085E53C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		42BDCF841F3338B90085E53C /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		42BDCF861F3338C10085E53C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		42BDCF881F3338C80085E53C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		42BDCF8A1F3338CD0085E53C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		42BDCF8C1F3338D40085E53C /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		42BDD0071F333D910085E53C /* libavcodec.57.89.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.57.89.100.dylib; path = ../../../../usr/local/Cellar/ffmpeg/3.3.3/lib/libavcodec.57.89.100.dylib; sourceTree = "<group>"; };
+		42BDD0081F333D910085E53C /* libavdevice.57.6.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavdevice.57.6.100.dylib; path = ../../../../usr/local/Cellar/ffmpeg/3.3.3/lib/libavdevice.57.6.100.dylib; sourceTree = "<group>"; };
+		42BDD0091F333D910085E53C /* libavfilter.6.82.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavfilter.6.82.100.dylib; path = ../../../../usr/local/Cellar/ffmpeg/3.3.3/lib/libavfilter.6.82.100.dylib; sourceTree = "<group>"; };
+		42BDD00A1F333D910085E53C /* libavformat.57.71.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.57.71.100.dylib; path = ../../../../usr/local/Cellar/ffmpeg/3.3.3/lib/libavformat.57.71.100.dylib; sourceTree = "<group>"; };
+		42BDD00B1F333D910085E53C /* libavresample.3.5.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavresample.3.5.0.dylib; path = ../../../../usr/local/Cellar/ffmpeg/3.3.3/lib/libavresample.3.5.0.dylib; sourceTree = "<group>"; };
+		42BDD00C1F333D910085E53C /* libavutil.55.58.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavutil.55.58.100.dylib; path = ../../../../usr/local/Cellar/ffmpeg/3.3.3/lib/libavutil.55.58.100.dylib; sourceTree = "<group>"; };
+		42BDD00D1F333D910085E53C /* libpostproc.54.5.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpostproc.54.5.100.dylib; path = ../../../../usr/local/Cellar/ffmpeg/3.3.3/lib/libpostproc.54.5.100.dylib; sourceTree = "<group>"; };
+		42BDD00E1F333D910085E53C /* libswresample.2.7.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswresample.2.7.100.dylib; path = ../../../../usr/local/Cellar/ffmpeg/3.3.3/lib/libswresample.2.7.100.dylib; sourceTree = "<group>"; };
+		42BDD00F1F333D910085E53C /* libswscale.4.6.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswscale.4.6.100.dylib; path = ../../../../usr/local/Cellar/ffmpeg/3.3.3/lib/libswscale.4.6.100.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +62,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4232E21A1F3AE73500CC9D3D /* libSDL2-2.0.0.dylib in Frameworks */,
+				42BDD0101F333D910085E53C /* libavcodec.57.89.100.dylib in Frameworks */,
+				42BDD0111F333D910085E53C /* libavdevice.57.6.100.dylib in Frameworks */,
+				42BDD0121F333D910085E53C /* libavfilter.6.82.100.dylib in Frameworks */,
+				42BDD0131F333D910085E53C /* libavformat.57.71.100.dylib in Frameworks */,
+				42BDD0141F333D910085E53C /* libavresample.3.5.0.dylib in Frameworks */,
+				42BDD0151F333D910085E53C /* libavutil.55.58.100.dylib in Frameworks */,
+				42BDD0161F333D910085E53C /* libpostproc.54.5.100.dylib in Frameworks */,
+				42BDD0171F333D910085E53C /* libswresample.2.7.100.dylib in Frameworks */,
+				42BDD0181F333D910085E53C /* libswscale.4.6.100.dylib in Frameworks */,
+				42BDCF871F3338C10085E53C /* VideoToolbox.framework in Frameworks */,
+				42BDCF891F3338C80085E53C /* CoreMedia.framework in Frameworks */,
+				42BDCF8D1F3338D40085E53C /* libiconv.tbd in Frameworks */,
+				42BDCF8B1F3338CD0085E53C /* libz.tbd in Frameworks */,
+				42BDCF851F3338B90085E53C /* libbz2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +88,7 @@
 			children = (
 				42BDCF7B1F3338A30085E53C /* player2 */,
 				42BDCF7A1F3338A30085E53C /* Products */,
+				42BDCF831F3338B90085E53C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +106,28 @@
 				42BDCF7C1F3338A30085E53C /* main.c */,
 			);
 			path = player2;
+			sourceTree = "<group>";
+		};
+		42BDCF831F3338B90085E53C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4232E2191F3AE73500CC9D3D /* libSDL2-2.0.0.dylib */,
+				42BDD0071F333D910085E53C /* libavcodec.57.89.100.dylib */,
+				42BDD0081F333D910085E53C /* libavdevice.57.6.100.dylib */,
+				42BDD0091F333D910085E53C /* libavfilter.6.82.100.dylib */,
+				42BDD00A1F333D910085E53C /* libavformat.57.71.100.dylib */,
+				42BDD00B1F333D910085E53C /* libavresample.3.5.0.dylib */,
+				42BDD00C1F333D910085E53C /* libavutil.55.58.100.dylib */,
+				42BDD00D1F333D910085E53C /* libpostproc.54.5.100.dylib */,
+				42BDD00E1F333D910085E53C /* libswresample.2.7.100.dylib */,
+				42BDD00F1F333D910085E53C /* libswscale.4.6.100.dylib */,
+				42BDCF8C1F3338D40085E53C /* libiconv.tbd */,
+				42BDCF8A1F3338CD0085E53C /* libz.tbd */,
+				42BDCF881F3338C80085E53C /* CoreMedia.framework */,
+				42BDCF861F3338C10085E53C /* VideoToolbox.framework */,
+				42BDCF841F3338B90085E53C /* libbz2.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +286,13 @@
 		42BDCF811F3338A30085E53C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "/usr/local/include/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/player2/FFmpeg-iOS/lib",
+					/usr/local/Cellar/ffmpeg/3.3.3/lib,
+					/usr/local/Cellar/sdl2/2.0.5/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -225,6 +300,13 @@
 		42BDCF821F3338A30085E53C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "/usr/local/include/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/player2/FFmpeg-iOS/lib",
+					/usr/local/Cellar/ffmpeg/3.3.3/lib,
+					/usr/local/Cellar/sdl2/2.0.5/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -248,6 +330,7 @@
 				42BDCF821F3338A30085E53C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
