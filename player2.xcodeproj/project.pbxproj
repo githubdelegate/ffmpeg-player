@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4232E21A1F3AE73500CC9D3D /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4232E2191F3AE73500CC9D3D /* libSDL2-2.0.0.dylib */; };
+		4232E21D1F3BE93500CC9D3D /* 02SDLPlay.c in Sources */ = {isa = PBXBuildFile; fileRef = 4232E21B1F3BE93500CC9D3D /* 02SDLPlay.c */; };
 		42BDCF7D1F3338A30085E53C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42BDCF7C1F3338A30085E53C /* main.c */; };
 		42BDCF851F3338B90085E53C /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDCF841F3338B90085E53C /* libbz2.tbd */; };
 		42BDCF871F3338C10085E53C /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BDCF861F3338C10085E53C /* VideoToolbox.framework */; };
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		4232E2191F3AE73500CC9D3D /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2/2.0.5/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		4232E21B1F3BE93500CC9D3D /* 02SDLPlay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 02SDLPlay.c; sourceTree = "<group>"; };
+		4232E21C1F3BE93500CC9D3D /* 02SDLPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 02SDLPlay.h; sourceTree = "<group>"; };
 		42BDCF791F3338A30085E53C /* player2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = player2; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BDCF7C1F3338A30085E53C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		42BDCF841F3338B90085E53C /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
@@ -104,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				42BDCF7C1F3338A30085E53C /* main.c */,
+				4232E21B1F3BE93500CC9D3D /* 02SDLPlay.c */,
+				4232E21C1F3BE93500CC9D3D /* 02SDLPlay.h */,
 			);
 			path = player2;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42BDCF7D1F3338A30085E53C /* main.c in Sources */,
+				4232E21D1F3BE93500CC9D3D /* 02SDLPlay.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
