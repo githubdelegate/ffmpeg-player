@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "02SDLPlay.h"
+#include "02SDLPlayerTest.h"
 
 int main(int argc, char *argv[]) {
     playSDL2();

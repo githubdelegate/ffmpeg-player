@@ -8,12 +8,20 @@
 
 #include "02SDLPlay.h"
 
+#ifndef ffmpeg_h
+#define ffmpeg_h
 #include "avcodec.h"
 #include "avformat.h"
 #include "avfilter.h"
 #include "swscale.h"
+#endif
+
+
+#ifndef sdl_h
+#define sdl_h
 #include "SDL.h"
 #include "SDL_thread.h"
+#endif
 
 
 void SaveFrame(AVFrame *pFrame, int width, int height, int iFrame) {
@@ -49,7 +57,6 @@ int playSDL2(){
     AVCodec *pCodec = NULL;
     AVFrame *pFrame = NULL;
     AVPacket packet;
-    int frameFinished;
     struct SwsContext *sws_ctx = NULL;
     SDL_Event event;
     SDL_Window *screen;
@@ -59,24 +66,32 @@ int playSDL2(){
     size_t yPlaneSz, uvPlaneSz;
     int uvPitch;
     
-    //    char *filepath = "/Users/zhangyun/Documents/ffmpegtest.mp4";
-    char *filepath = "/Users/zhangyun/Downloads/BBC.Wild.China.6.Tides.of.Change.美丽中国之六潮汐更迭.双语字幕.HR-HDTV.AC3.960×528.X264-人人影视制作.avi";
-    //    if (argc < 2) {
-    //        fprintf(stderr, "Usage: test <file>\n");
-    //        exit(1);
-    //    }
+    // 1. 设置文件路径
+        char *filepath = "/Users/zhangyun/Documents/ffmpegtest.mp4";
+//    char *filepath = "/Users/zhangyun/Downloads/BBC.Wild.China.6.Tides.of.Change.美丽中国之六潮汐更迭.双语字幕.HR-HDTV.AC3.960×528.X264-人人影视制作.avi";
+    // 2. 注册全部的mutex demutex
     // Register all formats and codecs
     av_register_all();
     
+    // 3. 初始化SDL
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER)) {
         fprintf(stderr, "Could not initialize SDL - %s\n", SDL_GetError());
         exit(1);
     }
     
+    // 4. 根据路径 打开文件流 并获取头部信息
     // Open video file
     if (avformat_open_input(&pFormatCtx, filepath, NULL, NULL) != 0)
         return -1; // Couldn't open file
-    
+
+    /*
+     Read packets of a media file to get stream information. This is useful for file formats with no headers such as MPEG. This function also computes the real framerate in case of MPEG-2 repeat frame mode. The logical file position is not changed by this function; examined packets may be buffered for later processing.
+     Note
+     this function isn't guaranteed to open all the codecs, so options being non-empty at return is a perfectly normal behavior.
+     To Do
+     Let the user decide somehow what information is needed so that we do not waste time getting stuff the user does not need.
+     
+     */
     // Retrieve stream information
     if (avformat_find_stream_info(pFormatCtx, NULL) < 0)
         return -1; // Couldn't find stream information
@@ -84,7 +99,7 @@ int playSDL2(){
     // Dump information about file onto standard error
     av_dump_format(pFormatCtx, 0, filepath, 0);
     
-    // Find the first video stream
+    // 6.Find the first video stream
     videoStream = -1;
     for (i = 0; i < pFormatCtx->nb_streams; i++)
         if (pFormatCtx->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_VIDEO) {
@@ -93,11 +108,12 @@ int playSDL2(){
         }
     if (videoStream == -1)
         return -1; // Didn't find a video stream
+    
+    // 7. 创建 code 上下文
     pCodecCtxOrig = av_malloc(sizeof(AVCodecContext));
     avcodec_parameters_to_context(pCodecCtxOrig,pFormatCtx->streams[videoStream]->codecpar);
-    // Get a pointer to the codec context for the video stream
-//    pCodecCtxOrig = pFormatCtx->streams[videoStream]->codec;
-    // Find the decoder for the video stream
+    
+    // 8. 查找解码器
     pCodec = avcodec_find_decoder(pCodecCtxOrig->codec_id);
     if (pCodec == NULL) {
         fprintf(stderr, "Unsupported codec!\n");
@@ -106,17 +122,16 @@ int playSDL2(){
     
     // Copy context
     pCodecCtx = avcodec_alloc_context3(pCodec);
-
     if (avcodec_parameters_to_context(pCodecCtx, pFormatCtx->streams[videoStream]->codecpar)!= 0) {
         fprintf(stderr, "Couldn't copy codec context");
         return -1; // Error copying codec context
     }
     
-//    if (avcodec_copy_context(pCodecCtx, pCodecCtxOrig) != 0) {
-//        fprintf(stderr, "Couldn't copy codec context");
-//        return -1; // Error copying codec context
-//    }
-    
+    /*
+     Initialize the AVCodecContext to use the given AVCodec. Prior to using this function the context has to be allocated with avcodec_alloc_context3().
+     The functions avcodec_find_decoder_by_name(), avcodec_find_encoder_by_name(), avcodec_find_decoder() and avcodec_find_encoder() provide an easy way for retrieving a codec.
+     */
+    // 9. 打开解码器
     // Open codec
     if (avcodec_open2(pCodecCtx, pCodec, NULL) < 0)
         return -1; // Could not open codec
@@ -180,11 +195,18 @@ int playSDL2(){
     
     int ret = 0;
     uvPitch = pCodecCtx->width / 2;
+    
+    /*
+     
+     Return the next frame of a stream. This function returns what is stored in the file, and does not validate that what is there are valid frames for the decoder. It will split what is stored in the file into frames and return one for each call. It will not omit invalid data between valid frames so as to give the decoder the maximum information possible for decoding.
+     If pkt->buf is NULL, then the packet is valid until the next av_read_frame() or until avformat_close_input(). Otherwise the packet is valid indefinitely. In both cases the packet must be freed with av_packet_unref when it is no longer needed. For video, the packet contains exactly one frame. For audio, it contains an integer number of frames if each frame has a known fixed size (e.g. PCM or ADPCM data). If the audio frames have a variable size (e.g. MPEG audio), then it contains one frame.
+     pkt->pts, pkt->dts and pkt->duration are always set to correct values in AVStream.time_base units (and guessed if the format cannot provide them). pkt->pts can be AV_NOPTS_VALUE if the video format has B-frames, so it is better to rely on pkt->dts if you do not decompress the payload.
+     
+     */
     while (av_read_frame(pFormatCtx, &packet) >= 0) {
         // Is this a packet from the video stream?
         if (packet.stream_index == videoStream) {
             // Decode video frame
-            
             ret = avcodec_send_packet(pCodecCtx,&packet);
             if (ret < 0) {
                 fprintf(stderr, "send packet error");
@@ -198,14 +220,6 @@ int playSDL2(){
                 }
                 
                 if (ret >= 0) {
-                    //                AVPicture pict;
-                    //                pict.data[0] = yPlane;
-                    //                pict.data[1] = uPlane;
-                    //                pict.data[2] = vPlane;
-                    //                pict.linesize[0] = pCodecCtx->width;
-                    //                pict.linesize[1] = uvPitch;
-                    //                pict.linesize[2] = uvPitch;
-                    
                     uint8_t *dst[3];
                     dst[0] = yPlane;
                     dst[1] = uPlane;
@@ -225,25 +239,24 @@ int playSDL2(){
                         fprintf(stderr, "sws scale errro");
                     }
                     
-                    
-                    SDL_Rect *rect = malloc(sizeof(SDL_Rect));
-                    int r = random() % 2;
-                    if (r == 0) {
-                        rect->x = 0;
-                        rect->y = 0;
-                        rect->w = 100;
-                        rect->h = 100;
-                    }else if(r == 1){
-                        rect->x = 100;
-                        rect->y = 100;
-                        rect->w = 100;
-                        rect->h = 100;
-                    }else{
-                        rect->x = 200;
-                        rect->y = 200;
-                        rect->w = 100;
-                        rect->h = 100;
-                    }
+//                    SDL_Rect *rect = malloc(sizeof(SDL_Rect));
+//                    int r = random() % 2;
+//                    if (r == 0) {
+//                        rect->x = 0;
+//                        rect->y = 0;
+//                        rect->w = 100;
+//                        rect->h = 100;
+//                    }else if(r == 1){
+//                        rect->x = 100;
+//                        rect->y = 100;
+//                        rect->w = 100;
+//                        rect->h = 100;
+//                    }else{
+//                        rect->x = 200;
+//                        rect->y = 200;
+//                        rect->w = 100;
+//                        rect->h = 100;
+//                    }
                     
                  int res = SDL_UpdateYUVTexture(
                                          texture,
@@ -262,18 +275,10 @@ int playSDL2(){
                     SDL_RenderClear(renderer);
                     SDL_RenderCopy(renderer, texture, NULL, NULL);
                     SDL_RenderPresent(renderer);
-                    
                 }
             }
-            
-            
-//            avcodec_decode_video2(pCodecCtx, pFrame, &frameFinished, &packet);
-            
-            // Did we get a video frame?
         }
-        
         // Free the packet that was allocated by av_read_frame
-//        av_free_packet(&packet);
         av_packet_unref(&packet);
         SDL_PollEvent(&event);
         switch (event.type) {
