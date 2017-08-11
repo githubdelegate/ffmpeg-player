@@ -11,4 +11,5 @@
 
 #include <stdio.h>
 
+int playTest2();
 #endif /* _2SDLPlayerTest_h */

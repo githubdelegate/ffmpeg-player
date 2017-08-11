@@ -11,6 +11,7 @@
 #include "02SDLPlayerTest.h"
 
 int main(int argc, char *argv[]) {
-    playSDL2();
+//    playSDL2();
+    playTest2();
     return 0;
 }
