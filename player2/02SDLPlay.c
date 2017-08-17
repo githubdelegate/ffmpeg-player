@@ -67,8 +67,8 @@ int playSDL2(){
     int uvPitch;
     
     // 1. 设置文件路径
-        char *filepath = "/Users/zhangyun/Documents/ffmpegtest.mp4";
-//    char *filepath = "/Users/zhangyun/Downloads/BBC.Wild.China.6.Tides.of.Change.美丽中国之六潮汐更迭.双语字幕.HR-HDTV.AC3.960×528.X264-人人影视制作.avi";
+//        char *filepath = "/Users/zhangyun/Documents/ffmpegtest.mp4";
+    char *filepath = "/Users/zhangyun/Downloads/BBC.Wild.China.6.Tides.of.Change.美丽中国之六潮汐更迭.双语字幕.HR-HDTV.AC3.960×528.X264-人人影视制作.avi";
     // 2. 注册全部的mutex demutex
     // Register all formats and codecs
     av_register_all();
@@ -85,7 +85,7 @@ int playSDL2(){
         return -1; // Couldn't open file
 
     /*
-     Read packets of a media file to get stream information. This is useful for file formats with no headers such as MPEG. This function also computes the real framerate in case of MPEG-2 repeat frame mode. The logical file position is not changed by this function; examined packets may be buffered for later processing.
+     Read packets of a media file to get stream information. This is useful for file formats with no headers such as MPEG. This function also computes the re≥al framerate in case of MPEG-2 repeat frame mode. The logical file position is not changed by this function; examined packets may be buffered for later processing.
      Note
      this function isn't guaranteed to open all the codecs, so options being non-empty at return is a perfectly normal behavior.
      To Do

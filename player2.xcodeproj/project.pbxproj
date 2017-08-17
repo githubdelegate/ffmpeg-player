@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4223029E1F3C7DA10049B70E /* 02SDLPlayerTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 4223029C1F3C7DA00049B70E /* 02SDLPlayerTest.c */; };
+		422302A81F3DC9060049B70E /* 03SDLPlayer.c in Sources */ = {isa = PBXBuildFile; fileRef = 422302A61F3DC9060049B70E /* 03SDLPlayer.c */; };
 		4232E21A1F3AE73500CC9D3D /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4232E2191F3AE73500CC9D3D /* libSDL2-2.0.0.dylib */; };
 		4232E21D1F3BE93500CC9D3D /* 02SDLPlay.c in Sources */ = {isa = PBXBuildFile; fileRef = 4232E21B1F3BE93500CC9D3D /* 02SDLPlay.c */; };
 		42BDCF7D1F3338A30085E53C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42BDCF7C1F3338A30085E53C /* main.c */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		4223029C1F3C7DA00049B70E /* 02SDLPlayerTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 02SDLPlayerTest.c; sourceTree = "<group>"; };
 		4223029D1F3C7DA10049B70E /* 02SDLPlayerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 02SDLPlayerTest.h; sourceTree = "<group>"; };
+		422302A61F3DC9060049B70E /* 03SDLPlayer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 03SDLPlayer.c; sourceTree = "<group>"; };
+		422302A71F3DC9060049B70E /* 03SDLPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 03SDLPlayer.h; sourceTree = "<group>"; };
 		4232E2191F3AE73500CC9D3D /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2/2.0.5/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 		4232E21B1F3BE93500CC9D3D /* 02SDLPlay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 02SDLPlay.c; sourceTree = "<group>"; };
 		4232E21C1F3BE93500CC9D3D /* 02SDLPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 02SDLPlay.h; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 				4232E21C1F3BE93500CC9D3D /* 02SDLPlay.h */,
 				4223029C1F3C7DA00049B70E /* 02SDLPlayerTest.c */,
 				4223029D1F3C7DA10049B70E /* 02SDLPlayerTest.h */,
+				422302A61F3DC9060049B70E /* 03SDLPlayer.c */,
+				422302A71F3DC9060049B70E /* 03SDLPlayer.h */,
 			);
 			path = player2;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42BDCF7D1F3338A30085E53C /* main.c in Sources */,
+				422302A81F3DC9060049B70E /* 03SDLPlayer.c in Sources */,
 				4232E21D1F3BE93500CC9D3D /* 02SDLPlay.c in Sources */,
 				4223029E1F3C7DA10049B70E /* 02SDLPlayerTest.c in Sources */,
 			);

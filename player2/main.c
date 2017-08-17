@@ -9,9 +9,11 @@
 #include <stdio.h>
 #include "02SDLPlay.h"
 #include "02SDLPlayerTest.h"
+#include "03SDLPlayer.h"
 
 int main(int argc, char *argv[]) {
 //    playSDL2();
-    playTest2();
+//    playTest2();
+    play03();
     return 0;
 }
